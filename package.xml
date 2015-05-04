@@ -4,8 +4,10 @@
    <pkg abbrev="ex-dotml" id="expkg-zone58.github.io/ex-dotml">
       <name>http://expkg-zone58.github.io/ex-dotml</name>
       <abstract>XQuery interface to transform dotML into dot</abstract>
-      <author id="abunce">Andy Bunce</author>
+      <author id="mloetzsch">Martin Loetzsch</author>
+       <maintainer id="abunce">Andy Bunce</maintainer>
       <category id="libs">Libraries</category>
+      <home>http://martin-loetzsch.de/DOTML/</home>
       <tag>graphics</tag>
       <tag>library</tag>
       <tag>graphviz</tag>
