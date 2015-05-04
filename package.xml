@@ -1,0 +1,18 @@
+<!--  @see http://cxan.org/faq#add-pkg  -->
+<repo abbrev="ex-dotml">
+
+   <pkg abbrev="ex-dotml" id="expkg-zone58.github.io/ex-dotml">
+      <name>http://expkg-zone58.github.io/ex-dotml</name>
+      <abstract>XQuery interface to transform dotML into dot</abstract>
+      <author id="abunce">Andy Bunce</author>
+      <category id="libs">Libraries</category>
+      <tag>graphics</tag>
+      <tag>library</tag>
+      <tag>graphviz</tag>
+      <version num="0.0.3">
+         <dependency processor="basex"/>
+         <file name="ex-dotml-0.0.3.xar" role="pkg"/>
+      </version>
+   </pkg>
+
+</repo>
