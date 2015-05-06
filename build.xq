@@ -2,41 +2,37 @@
  : xar package and xqdoc
  :)
 declare namespace pkg="http://expath.org/ns/pkg";
+import module namespace build = "quodatum.utils.build" at "buildx.xqm";
 
 declare variable $src:=resolve-uri("src/main/");
 declare variable $dest:=resolve-uri("dist/");
 
-declare variable $package:=doc(resolve-uri("expath-pkg.xml",$src))/pkg:package;
-declare variable $content:=fn:resolve-uri($package/@abbrev || "/",$src);
-(:~
- : file paths below $src
+(:~ 
+ : the package definition as a pkg:package 
  :)
- declare function local:files() as xs:string*
- {
-   filter(file:list($src,fn:true()),
-          function ($f){file:is-file($src || $f)}
-        )
-          !translate(.,"\","/") 
- };
- 
- declare function local:zip(
-                            $files as xs:string*
-                            ) as xs:base64Binary
- {
-  let $data:= $files!file:read-binary(fn:resolve-uri( .,$src))
-  return archive:create( $files, $data) 
- };
- 
- declare function local:save-xqdoc($path as xs:string){
-  let $xqdoc:=inspect:xqdoc(resolve-uri($path,$content))
-  let $target:=resolve-uri($path || ".xml",$dest)
-  return file:write($target,$xqdoc) 
-};
-let $files:=local:files() 
-let $xar:= local:zip($files)
-let $name:= concat($package/@abbrev , "-" ,$package/@version, ".xar")
-let $xq:=resolve-uri($package/pkg:xquery/pkg:file,$content)
-return ( file:write-binary(resolve-uri($name,$dest),$xar),
-         $package/pkg:xquery/pkg:file!local:save-xqdoc(.)  
-)
+declare variable $package:=doc(resolve-uri("expath-pkg.xml",$src))/pkg:package;
 
+declare variable $content:=resolve-uri($package/@abbrev || "/",$src);
+declare variable $dest-doc:=resolve-uri("doc/",$dest);
+
+
+let $files:=build:files($src) 
+let $name:= concat($package/@abbrev , "-" ,$package/@version, ".xar")
+(: save xqdoc :) 
+return (build:transform(
+          $package/pkg:xquery/pkg:file,
+          function($path){inspect:xqdoc(fn:resolve-uri( $path,$content))},
+          function($path,$data){ file:write(
+                                resolve-uri(fn:trace($path) || ".xml",$dest-doc),
+                                $data)
+                              }
+          ),
+          (: write xar  :)       
+          build:merge(
+           $files,
+           function($path){file:read-binary(fn:resolve-uri($path,$src))},
+           function($paths,$data){file:write-binary(
+                                         resolve-uri($name,$dest),
+                                         archive:create($paths,$data))}
+           )
+ )

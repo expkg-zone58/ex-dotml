@@ -1,11 +1,11 @@
 <package xmlns="http://expath.org/ns/pkg"
          name="http://expkg-zone58.github.io/ex-dotml"
          abbrev="ex-dotml"
-         version="0.0.3"
+         version="0.0.4"
          spec="1.0">
 
    <title>XQuery interface to transform dotML into dot </title>
-   <dependency processor="basex" />
+ <dependency name="basex"/>
    <xquery> 
      <namespace>http://expkg-zone58.github.io/ex-dotml</namespace>
      <file>dotml.xqm</file>
