@@ -1,14 +1,13 @@
-<package xmlns="http://expath.org/ns/pkg"
-         name="http://expkg-zone58.github.io/ex-dotml"
-         abbrev="ex-dotml"
-         version="0.0.4"
-         spec="1.0">
-
-   <title>XQuery interface to transform dotML into dot </title>
- <dependency name="basex"/>
-   <xquery> 
-     <namespace>http://expkg-zone58.github.io/ex-dotml</namespace>
-     <file>dotml.xqm</file>
-   </xquery>
-
+<package xmlns="http://expath.org/ns/pkg" name="http://expkg-zone58.github.io/ex-dotml"
+	abbrev="ex-dotml" version="0.0.5" spec="1.0">
+	<title>Transform dotML into dot via XQuery or XSLT</title>
+	<dependency name="basex" />
+	<xquery>
+		<namespace>http://expkg-zone58.github.io/ex-dotml</namespace>
+		<file>dotml.xqm</file>
+	</xquery>
+	<xslt>
+		<import-uri>http://www.martin-loetzsch.de/DOTML</import-uri>
+		<file>dotml2dot.xsl</file>
+	</xslt>
 </package>

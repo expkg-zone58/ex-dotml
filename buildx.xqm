@@ -7,7 +7,7 @@
  :)
 module namespace build = 'quodatum.utils.build';
 declare default function namespace 'quodatum.utils.build'; 
-
+declare namespace pkg="http://expath.org/ns/pkg";
 (:~
  : file paths below $src
  : $src typically from resolve-uri
@@ -43,4 +43,27 @@ declare function merge($paths  as xs:string*,
 {
  let $data:= $paths!$fetch(.)
  return $merge($paths,$data)
+};
+
+declare function xar($package as element(pkg:package)) as xs:string
+{
+fn:concat($package/@abbrev , "-" ,$package/@version, ".xar")
+};
+
+(:
+: update package.xml located at $cxan to ensure has entry for package $pkg
+:)
+declare function publish($pkg as element(pkg:package),$cxan)
+{
+copy  $c:=fn:doc($cxan)
+modify(
+let $pack:=$c/repo/pkg[name=$pkg/@name]
+let $hit:= $pack/version[@num=$pkg/@version]
+let $new:=<version num="{$pkg/@version}">
+          <!-- generated: {fn:current-dateTime()} -->
+          </version>
+return if($hit)then () 
+       else insert node $new into $pack
+     )
+return fn:put($c,$cxan)
 };
