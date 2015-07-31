@@ -1,10 +1,10 @@
 <xqdoc:xqdoc xmlns:xqdoc="http://www.xqdoc.org/1.0">
   <xqdoc:control>
-    <xqdoc:date>2015-05-12T21:55:36.01+01:00</xqdoc:date>
+    <xqdoc:date>2015-07-31T16:25:00.174+01:00</xqdoc:date>
     <xqdoc:version>1.1</xqdoc:version>
   </xqdoc:control>
   <xqdoc:module type="library">
-    <xqdoc:uri>http://expkg-zone58.github.io/ex-dotml</xqdoc:uri>
+    <xqdoc:uri>http://www.martin-loetzsch.de/DOTML</xqdoc:uri>
     <xqdoc:name>dotml.xqm</xqdoc:name>
     <xqdoc:comment>
       <xqdoc:description>dotml module</xqdoc:description>
@@ -12,7 +12,6 @@
     </xqdoc:comment>
   </xqdoc:module>
   <xqdoc:namespaces>
-    <xqdoc:namespace prefix="ex-dotml" uri="http://expkg-zone58.github.io/ex-dotml"/>
     <xqdoc:namespace prefix="dotml" uri="http://www.martin-loetzsch.de/DOTML"/>
     <xqdoc:namespace prefix="xslt" uri="http://basex.org/modules/xslt"/>
   </xqdoc:namespaces>
@@ -26,15 +25,14 @@
     <xqdoc:function arity="1">
       <xqdoc:comment>
         <xqdoc:description/>
-        <xqdoc:return>graphviz dot string
-note xslt:transform can not return output text so result is wrapped</xqdoc:return>
+        <xqdoc:return>graphviz dot string</xqdoc:return>
       </xqdoc:comment>
       <xqdoc:name>to-dot</xqdoc:name>
-      <xqdoc:signature>declare function to-dot($dotml as item()*) as xs:string</xqdoc:signature>
+      <xqdoc:signature>declare function to-dot($dotml as element(dotml:graph)) as xs:string</xqdoc:signature>
       <xqdoc:parameters>
         <xqdoc:parameter>
           <xqdoc:name>dotml</xqdoc:name>
-          <xqdoc:type occurrence="*">item()</xqdoc:type>
+          <xqdoc:type>element(dotml:graph)</xqdoc:type>
         </xqdoc:parameter>
       </xqdoc:parameters>
       <xqdoc:return>
