@@ -1,0 +1,12 @@
+<package xmlns="http://cxan.org/ns/package" id="dotml">
+    <abstract>DotML is a XML based syntax for the input language of the 'Dot' graph drawing tool 
+    from the AT&T GraphViz suite. It can be transformed to the native syntax of the
+     'Dot' tool using XSLT. </abstract>
+    <author id="mloetzsch">Martin Loetzsch</author>
+    <maintainer id="abunce">Andy Bunce</maintainer>
+    <home>http://martin-loetzsch.de/DOTML/</home>
+    <category id="libs">Library</category>
+    <tag>graphviz</tag>
+    <tag>dot</tag>
+    <tag>graphic</tag>
+</package>
