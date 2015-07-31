@@ -1,6 +1,6 @@
 <package xmlns="http://cxan.org/ns/package" id="dotml">
     <abstract>DotML is a XML based syntax for the input language of the 'Dot' graph drawing tool 
-    from the AT&T GraphViz suite. It can be transformed to the native syntax of the
+    from the AT&amp;T GraphViz suite. It can be transformed to the native syntax of the
      'Dot' tool using XSLT. </abstract>
     <author id="mloetzsch">Martin Loetzsch</author>
     <maintainer id="abunce">Andy Bunce</maintainer>
