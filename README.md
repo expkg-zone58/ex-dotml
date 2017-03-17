@@ -1,8 +1,8 @@
 # ex-dotml
 The dotML library provides conversion from `dotML` format to Graphviz[1] dot.
-
-This application includes an XSLT transform to convert `DotML` to `dot` developed by Martin Loetzsch. 
 `DotML`[2] is a XML based syntax for the input language 'Dot' used by Graphviz.
+This application includes an XSLT transform to convert `DotML` to `dot` developed by Martin Loetzsch. 
+
 ## Example
 ````
 import module namespace dotml="http://www.martin-loetzsch.de/DOTML";

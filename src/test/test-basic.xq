@@ -2,7 +2,7 @@
  : ex-dotml tests
  :)
 module namespace test = 'http://basex.org/modules/xqunit-tests';
-import module namespace ex-dotml="http://expkg-zone58.github.io/ex-dotml";
+import module namespace ex-dotml="http://www.martin-loetzsch.de/DOTML";
 
 declare variable $test:simple:=
 <graph xmlns="http://www.martin-loetzsch.de/DOTML">

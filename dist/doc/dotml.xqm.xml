@@ -1,14 +1,18 @@
 <xqdoc:xqdoc xmlns:xqdoc="http://www.xqdoc.org/1.0">
   <xqdoc:control>
-    <xqdoc:date>2015-07-31T16:25:00.174+01:00</xqdoc:date>
+    <xqdoc:date>2017-03-17T11:07:46.942Z</xqdoc:date>
     <xqdoc:version>1.1</xqdoc:version>
   </xqdoc:control>
   <xqdoc:module type="library">
     <xqdoc:uri>http://www.martin-loetzsch.de/DOTML</xqdoc:uri>
     <xqdoc:name>dotml.xqm</xqdoc:name>
     <xqdoc:comment>
-      <xqdoc:description>dotml module</xqdoc:description>
+      <xqdoc:description>The dotML library provides conversion from <code>dotML</code> format to Graphviz dot.
+'DotML' is a XML based syntax for the input language 'Dot' used by Graphviz.
+This application includes an XSLT transform to convert 'DotML' to 'dot' developed by Martin Loetzsch. 
+The <code>dotml:to-dot()</code> function invokes this transform.</xqdoc:description>
       <xqdoc:see>http://www.martin-loetzsch.de/DOTML/</xqdoc:see>
+      <xqdoc:version>0.2.1</xqdoc:version>
     </xqdoc:comment>
   </xqdoc:module>
   <xqdoc:namespaces>
@@ -24,11 +28,12 @@
   <xqdoc:functions>
     <xqdoc:function arity="1">
       <xqdoc:comment>
-        <xqdoc:description/>
+        <xqdoc:description>transform DotML to dot</xqdoc:description>
+        <xqdoc:param>$dotml The dotML node to convert.</xqdoc:param>
         <xqdoc:return>graphviz dot string</xqdoc:return>
       </xqdoc:comment>
-      <xqdoc:name>to-dot</xqdoc:name>
-      <xqdoc:signature>declare function to-dot($dotml as element(dotml:graph)) as xs:string</xqdoc:signature>
+      <xqdoc:name>dotml:to-dot</xqdoc:name>
+      <xqdoc:signature>declare function dotml:to-dot($dotml as element(dotml:graph)) as xs:string</xqdoc:signature>
       <xqdoc:parameters>
         <xqdoc:parameter>
           <xqdoc:name>dotml</xqdoc:name>
